@@ -1,0 +1,5 @@
+streamlit
+httpx_oauth
+google-generativeai
+pyserial
+python-dotenv
