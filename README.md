@@ -1,2 +1,78 @@
-# WATER_QUALITY_MONITOR_USING_AI-ML
-This project monitors water quality 🌊 by using sensors connected to an ESP32 to measure physical parameters like pH, turbidity, and temperature. AI/ML models analyze the data to classify water as Safe 🦺 or Unsafe 💀 for drinking. A Streamlit dashboard provides real-time visualization, trends, and safety updates.
+Water Quality Monitoring System
+Overview
+This project is a comprehensive water quality monitoring system that combines Arduino-based sensors with a Streamlit web interface. The system measures key water quality parameters (pH, TDS, turbidity, and temperature) and provides real-time analysis of water drinkability along with AI-powered improvement suggestions using Google's Gemini model.
+
+Features
+Real-time water quality monitoring of critical parameters
+Secure user authentication via Google OAuth
+AI-powered water quality analysis using Google's Gemini model
+Drinkability assessment based on water quality parameters
+Personalized improvement suggestions for enhancing water quality
+Hardware Components
+ESP32 microcontroller
+pH sensor
+TDS (Total Dissolved Solids) sensor
+Turbidity sensor
+DS18B20 temperature sensor
+Software Architecture
+The project consists of three main components:
+
+Arduino Code: Collects sensor data and sends it to the Streamlit application
+ESP_PY Module: Establishes serial communication between the hardware and web interface
+Streamlit Frontend: Provides user authentication, data visualization, and AI analysis
+Installation
+Prerequisites
+Python 3.12
+Arduino IDE
+An ESP32 development board with appropriate sensors
+Google API credentials for OAuth and Gemini API
+Step 1: Clone the repository
+git clone https://github.com/Kaniyan-Poongundran/WATER_QUALITY_MONITOR_USING_AI-ML.git
+cd WATER_QUALITY_MONITOR_USING_AI-ML
+Step 2: Install Python dependencies
+pip install -r requirements.txt
+Step 3: Set up environment variables
+Create a .env file in the project root with the following variables:
+
+GEM_KEY=your_gemini_api_key
+COOKIE_NAME=your_cookie_name
+SIGN_KEY=your_signing_key
+CL_ID=your_google_oauth_client_id
+CL_SECRET=your_google_oauth_client_secret
+Step 4: Upload Arduino code
+Open Water_Quality_monitor_Upd/Water_Quality_monitor_Upd.ino in the Arduino IDE and upload it to your ESP32 board.
+
+Usage
+Step 1: Connect the hardware
+Connect the ESP32 with all sensors to your computer via USB.
+
+Step 2: Run the ESP communication module
+python esp_py.py
+Follow the prompts to enter the correct COM port and baud rate for your device.
+
+Step 3: Launch the Streamlit application
+streamlit run frontend_auth.py
+Step 4: Access the web interface
+Open your browser and navigate to http://localhost:8501. Log in with your Google account to access the dashboard.
+
+System Operation
+Sign in using Google authentication
+View real-time water quality measurements
+Get drinkability assessment based on measured parameters
+Request AI-powered suggestions for improving water quality
+Refresh data to get the latest readings
+Dependencies
+streamlit
+httpx_oauth
+google-generativeai
+pyserial
+python-dotenv
+ArduinoJson (for ESP32)
+OneWire (for ESP32)
+DallasTemperature (for ESP32)
+Future Improvements
+Mobile application integration
+Historical data tracking and trend analysis
+Additional water quality parameters
+Automated alert system for concerning readings
+Cloud data storage for long-term monitoring
